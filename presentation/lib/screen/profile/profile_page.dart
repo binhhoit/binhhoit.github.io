@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
       if (profile.languages.isNotEmpty) LanguagesSection(languages: profile.languages),
     ];
     final main = [
-      AboutSection(summary: profile.summary),
+      AboutSection(summary: profile.summary, services: profile.services),
       if (profile.experiences.isNotEmpty) ExperienceSection(items: profile.experiences),
       if (profile.projects.isNotEmpty) ProjectsSection(items: profile.projects),
     ];

@@ -5,23 +5,28 @@ import 'package:flutter/material.dart';
 /// Private details (address, birthday, phone) are left out on purpose.
 const profile = Profile(
   name: 'Ho Thanh Binh',
-  title: 'Mobile Application Developer · Flutter / Android',
+  title: 'Senior Mobile Engineer · Native Android & Flutter · AI-assisted',
   location: 'Ho Chi Minh City, Vietnam',
   email: 'binhhoit@gmail.com',
   avatarAsset: 'assets/images/avatar.jpg',
   summary:
-      'Mobile developer with 9+ years of experience since 2017, building Android apps in Kotlin and Java and '
-      'cross-platform apps in Flutter / Dart. I currently build the Wumbo Digital Concierge app (iOS, Android) and '
-      'web at WE Wumbo, a smart-building platform from Australia.\n\n'
-      'Before that I shipped products for clients in Hong Kong, the UK, France, Australia and China: e-commerce, '
-      'fintech, social livestreaming, warranty & customer care, and workforce tools.\n\n'
-      'I care about clean architecture (MVVM, MVP, Clean Architecture), testable code and smooth UI that matches the '
-      'design pixel by pixel. Day to day I work on realtime features (livestream, sockets, Firebase), payment '
-      'integration, maps & location tracking, memory and performance tuning, and CI/CD in Agile Scrum teams.\n\n'
-      'I build with AI every day: coding agents like Claude Code for planning, implementing, testing and reviewing '
-      'features, MCP integrations that turn Figma designs into Flutter UI and manage Supabase backends, and '
-      'prompt-driven workflows that let me ship full products end to end (mobile, web, backend and deploy) faster '
-      'without giving up code quality.',
+      'Senior mobile engineer with 9+ years in native Android (Kotlin, Java) and Flutter, taking apps from the first '
+      'line of code to the App Store and Google Play. I currently build the Wumbo Digital Concierge app (iOS, Android) '
+      'and web at WE Wumbo, Australia. Before that I shipped e-commerce, fintech, livestreaming, customer care and '
+      'workforce apps for clients in Hong Kong, the UK, France, Australia and China.\n\n'
+      'That deep native + Flutter foundation is what makes AI work for me. I know what solid architecture, smooth '
+      'performance and good UX look like on a phone, so I let AI coding agents (Claude Code, MCP with Figma and '
+      'Supabase) do the heavy lifting while I own the design decisions, code review and quality bar. The result: '
+      'products delivered in weeks instead of months, with a smaller team and a lower budget, without the '
+      'technical debt that usually comes with "fast".',
+  services: [
+    'MVP in weeks: mobile app, web admin, backend (Supabase / Firebase) and store release, end to end.',
+    'Native or Flutter? Honest advice on the right stack, then building it, or migrating native apps to Flutter.',
+    'Modernize legacy apps: Java to Kotlin, XML to Jetpack Compose, cleaner architecture and better performance.',
+    'Realtime features: video calls (WebRTC, CallKit), livestreaming, chat and location tracking.',
+    'Payments and subscriptions: Google Pay, Mangopay, Datatrans and in-app purchases.',
+    'AI-assisted workflow and CI/CD for your team, so a small team ships like a big one.',
+  ],
   links: [
     ProfileLink(label: 'GitHub', url: 'https://github.com/binhhoit', icon: Icons.code),
     ProfileLink(
@@ -288,6 +293,9 @@ class Profile {
   final String? phone;
   final String? avatarAsset;
   final String summary;
+
+  /// What I offer to clients, shown under the summary as "How I can help".
+  final List<String> services;
   final List<ProfileLink> links;
   final List<SkillGroup> skills;
   final List<Experience> experiences;
@@ -303,6 +311,7 @@ class Profile {
     this.email,
     this.phone,
     this.avatarAsset,
+    this.services = const [],
     this.links = const [],
     this.skills = const [],
     this.experiences = const [],

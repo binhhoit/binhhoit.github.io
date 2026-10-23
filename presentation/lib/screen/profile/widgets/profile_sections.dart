@@ -5,14 +5,23 @@ import 'package:ui_kit/ui_kit.dart';
 
 class AboutSection extends StatelessWidget {
   final String summary;
+  final List<String> services;
 
-  const AboutSection({super.key, required this.summary});
+  const AboutSection({super.key, required this.summary, this.services = const []});
 
   @override
   Widget build(BuildContext context) => AppSection(
         title: 'About',
         icon: Icons.person_outline,
-        child: Text(summary, style: AppTextStyle.body),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(summary, style: AppTextStyle.body),
+          if (services.isNotEmpty) ...[
+            const SizedBox(height: 18),
+            Text('How I can help', style: AppTextStyle.t1),
+            const SizedBox(height: 8),
+            AppBulletList(services),
+          ],
+        ]),
       );
 }
 
