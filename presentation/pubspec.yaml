@@ -1,0 +1,25 @@
+name: presentation
+description: Web profile cá nhân (Flutter web, không kết nối server).
+publish_to: none
+version: 1.0.0+1
+resolution: workspace
+
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  ui_kit:
+    path: ../ui_kit
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
