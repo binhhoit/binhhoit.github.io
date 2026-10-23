@@ -12,7 +12,7 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  for (final (label, size) in [('phone', Size(390, 844)), ('desktop', Size(1440, 900))]) {
+  for (final (label, size) in [('phone', Size(390, 844)), ('tablet', Size(1100, 900)), ('desktop', Size(1440, 900)), ('large', Size(1920, 1080))]) {
     testWidgets('renders profile on $label without overflow', (tester) async {
       await pumpAt(tester, size);
       expect(find.text(profile.name), findsWidgets);

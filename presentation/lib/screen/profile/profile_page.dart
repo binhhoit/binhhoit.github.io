@@ -5,7 +5,10 @@ import 'package:presentation/screen/profile/widgets/profile_sections.dart';
 import 'package:presentation/utils/open_url.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-/// Single-page profile. Phones: one column. Wide screens (>= [kWideBreakpoint]): info sidebar left, content right.
+/// Single-page profile.
+/// - Phones: one column.
+/// - Wide (>= [kWideBreakpoint]): info sidebar left, content right.
+/// - Ultra wide (>= [kUltraWideBreakpoint]): contact | about & experience | skills & projects.
 class ProfilePage extends StatelessWidget {
   final Profile profile;
 
@@ -13,34 +16,40 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final wide = isWide(context);
-    final side = [
-      ContactSection(profile: profile),
-      // Education sits right under Contact so it is visible without scrolling.
-      if (profile.education.isNotEmpty) EducationSection(items: profile.education),
-      if (profile.skills.isNotEmpty) SkillsSection(groups: profile.skills),
-      if (profile.languages.isNotEmpty) LanguagesSection(languages: profile.languages),
-    ];
-    final main = [
-      AboutSection(summary: profile.summary, services: profile.services),
-      if (profile.experiences.isNotEmpty) ExperienceSection(items: profile.experiences),
-      if (profile.projects.isNotEmpty) ProjectsSection(items: profile.projects),
-    ];
+    final contact = ContactSection(profile: profile);
+    // Education sits right under Contact so it is visible without scrolling.
+    final education = profile.education.isEmpty ? null : EducationSection(items: profile.education);
+    final skills = profile.skills.isEmpty ? null : SkillsSection(groups: profile.skills);
+    final languages = profile.languages.isEmpty ? null : LanguagesSection(languages: profile.languages);
+    final about = AboutSection(summary: profile.summary, services: profile.services);
+    final experience = profile.experiences.isEmpty ? null : ExperienceSection(items: profile.experiences);
+    final projects = profile.projects.isEmpty ? null : ProjectsSection(items: profile.projects);
+
+    final Widget body;
+    if (isUltraWide(context)) {
+      body = Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SizedBox(width: 300, child: _Column([contact, education, languages])),
+        const SizedBox(width: 20),
+        Expanded(child: _Column([about, experience])),
+        const SizedBox(width: 20),
+        SizedBox(width: 340, child: _Column([skills, projects])),
+      ]);
+    } else if (isWide(context)) {
+      body = Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SizedBox(width: 340, child: _Column([contact, education, skills, languages])),
+        const SizedBox(width: 20),
+        Expanded(child: _Column([about, experience, projects])),
+      ]);
+    } else {
+      body = _Column([about, contact, education, skills, languages, experience, projects]);
+    }
 
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
           ProfileHeader(profile: profile),
           const SizedBox(height: 24),
-          ResponsiveCenter(
-            child: wide
-                ? Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    SizedBox(width: 340, child: _Column(side)),
-                    const SizedBox(width: 20),
-                    Expanded(child: _Column(main)),
-                  ])
-                : _Column([main.first, ...side, ...main.skip(1)]),
-          ),
+          ResponsiveCenter(child: body),
           const SizedBox(height: 32),
           Text('© ${DateTime.now().year} ${profile.name}', style: AppTextStyle.small),
           const SizedBox(height: 4),
@@ -56,10 +65,11 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
+/// Vertical stack of sections; null entries (empty sections) are skipped.
 class _Column extends StatelessWidget {
   final List<Widget> children;
 
-  const _Column(this.children);
+  _Column(List<Widget?> sections) : children = sections.whereType<Widget>().toList();
 
   @override
   Widget build(BuildContext context) => Column(children: [

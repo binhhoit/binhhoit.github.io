@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 /// From this width up: two-column layout (info sidebar on the left, content on the right).
 const double kWideBreakpoint = 900;
 
+/// From this width up: three columns (contact | about & experience | skills & projects).
+const double kUltraWideBreakpoint = 1280;
+
 /// Max content width on large screens.
-const double kContentMaxWidth = 1080;
+const double kContentMaxWidth = 1360;
 
 /// Horizontal gutter on phones.
 const double kGutter = 16;
 
 bool isWide(BuildContext context) => MediaQuery.sizeOf(context).width >= kWideBreakpoint;
+
+bool isUltraWide(BuildContext context) => MediaQuery.sizeOf(context).width >= kUltraWideBreakpoint;
 
 /// Centers content in a column at most [maxWidth] wide, with a [kGutter] side padding.
 class ResponsiveCenter extends StatelessWidget {
