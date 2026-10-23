@@ -1,61 +1,208 @@
 import 'package:flutter/material.dart';
 
 /// All profile content lives in this file — edit it and the page updates.
-/// TODO(profile): replace the sample data with real information.
+/// Source: CV (Nov 2024) + public GitHub repos. Private details (address, birthday, phone) are left out on purpose.
 const profile = Profile(
-  name: 'Binh Ho',
-  title: 'Mobile Developer · Flutter / Android / iOS',
-  location: 'Viet Nam',
-  email: null,
-  phone: null,
+  name: 'Ho Thanh Binh',
+  title: 'Software Engineer · Mobile Developer (Flutter / Android)',
+  location: 'Ho Chi Minh City, Vietnam',
+  email: 'binhhoit@gmail.com',
   avatarAsset: null, // e.g. 'assets/images/avatar.jpg' (put the file in presentation/assets/images/)
   summary:
-      'Mobile developer building cross-platform apps with Flutter, plus native Android (Kotlin, Jetpack Compose) '
-      'and iOS (Swift). Focused on clean architecture, maintainable UI kits and shipping to Android, iOS, web and desktop.',
+      'Mobile developer with 9+ years of experience since 2017, building Android apps in Kotlin and Java and '
+      'cross-platform apps in Flutter / Dart. I have shipped products for clients in Hong Kong, the UK, France, '
+      'Australia and China: e-commerce, fintech, social livestreaming, warranty & customer care, and workforce tools.\n\n'
+      'I care about clean architecture (MVVM, MVP, Clean Architecture), testable code and smooth UI that matches the '
+      'design pixel by pixel. Day to day I work on realtime features (livestream, sockets, Firebase), payment '
+      'integration, maps & location tracking, memory and performance tuning, and CI/CD in Agile Scrum teams.',
   links: [
     ProfileLink(label: 'GitHub', url: 'https://github.com/binhhoit', icon: Icons.code),
+    ProfileLink(
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/h%E1%BB%93-thanh-b%C3%ACnh-17b772116/',
+      icon: Icons.business_center_outlined,
+    ),
   ],
   skills: [
-    SkillGroup(name: 'Mobile', items: ['Flutter', 'Dart', 'Android', 'Kotlin', 'Jetpack Compose', 'iOS', 'Swift']),
-    SkillGroup(name: 'Architecture', items: ['Clean Architecture', 'BLoC / Cubit', 'MVVM', 'Dependency Injection']),
-    SkillGroup(name: 'Backend & Tools', items: ['REST API', 'Supabase', 'WebRTC', 'Git', 'CI/CD']),
+    SkillGroup(name: 'Languages', items: ['Kotlin', 'Java', 'Dart']),
+    SkillGroup(name: 'Mobile', items: ['Android SDK', 'Flutter', 'Jetpack Compose', 'Material UI', 'Chromebook']),
+    SkillGroup(name: 'Architecture', items: ['MVVM', 'MVP', 'Clean Architecture', 'BLoC', 'Koin', 'Dagger']),
+    SkillGroup(name: 'Async & Network', items: ['Coroutines', 'RxJava', 'Retrofit', 'REST API', 'Socket.IO']),
+    SkillGroup(
+      name: 'Realtime & Media',
+      items: ['Livestream (RTMP)', 'WebRTC', 'Google Maps', 'Location tracking'],
+    ),
+    SkillGroup(
+      name: 'Data & Cloud',
+      items: ['Firebase', 'Realtime Database', 'SQLite', 'MongoDB', 'AWS S3', 'Supabase'],
+    ),
+    SkillGroup(name: 'Payments', items: ['Google Pay', 'Mangopay', 'Datatrans', 'Subscriptions']),
+    SkillGroup(name: 'Quality & Delivery', items: ['Unit test', 'Espresso', 'Appium', 'Jenkins', 'GitLab CI']),
+    SkillGroup(name: 'Tools & Process', items: ['Android Studio', 'VS Code', 'Git', 'Jira', 'Agile Scrum']),
   ],
   experiences: [
     Experience(
-      role: 'Mobile Developer',
-      company: 'Updating',
-      period: '20xx – present',
-      highlights: ['Updating'],
+      role: 'Freelance Flutter / Android Developer',
+      company: 'Self-employed',
+      period: 'Jan 2024 – Present',
+      highlights: [
+        'Build cross-platform apps with Flutter and native Android apps for clients, from UI kit to release.',
+        'Realtime video calls (WebRTC), payment plugins (Datatrans) and location tracking.',
+      ],
+    ),
+    Experience(
+      role: 'Android / Flutter Developer',
+      company: 'Saigon Technology',
+      period: 'May 2022 – Jan 2024',
+      projects: [
+        WorkProject(
+          name: 'Milwaukee',
+          client: 'Hong Kong',
+          period: 'Apr 2023 – Jan 2024',
+          team: '14 members',
+          description: 'Warranty and customer care app: warranty management, customer feedback, promotions, '
+              'region-based content and a supply-chain store locator.',
+          highlights: [
+            'Structured the codebase and built UI from the client Figma designs.',
+            'Wrote unit tests and UI tests for the Android project.',
+            'Tested APIs and resolved issues together with the backend team.',
+          ],
+          tags: ['Kotlin', 'MVVM', 'Koin', 'Coroutines', 'Unit test'],
+        ),
+        WorkProject(
+          name: 'Finance Manager',
+          client: 'United Kingdom',
+          period: 'Apr 2022 – Apr 2023',
+          team: '13 members',
+          description: 'Personal finance app with auto debit for bills and subscriptions and wallet management '
+              'to track expenses and spending habits.',
+          highlights: [
+            'Built animated UI components following the design.',
+            'Proposed solutions for memory management and app lifecycle.',
+            'Refactored the codebase to be clear and easy to extend.',
+          ],
+          tags: ['Kotlin', 'MVVM', 'Koin', 'Coroutines', 'Firebase'],
+        ),
+      ],
+    ),
+    Experience(
+      role: 'Android Developer',
+      company: 'Dirox',
+      period: 'Oct 2019 – May 2022',
+      projects: [
+        WorkProject(
+          name: 'Social Challenge App',
+          client: 'France',
+          period: 'Oct 2019 – Apr 2022',
+          team: '8 members',
+          description: 'Social platform where users challenge each other, livestream the challenge, chat with '
+              'friends and donate to charities.',
+          highlights: [
+            'Built a multi-user livestreaming system (RTMP) and realtime chat.',
+            'Designed the realtime database on Firebase.',
+            'Integrated Mangopay and Google Pay; file transfer on AWS.',
+            'Optimized memory and security; background services for performance and battery.',
+          ],
+          tags: ['Kotlin', 'MVVM', 'RTMP', 'RxJava', 'Dagger', 'Socket.IO', 'Firebase'],
+        ),
+      ],
+    ),
+    Experience(
+      role: 'Android Developer',
+      company: 'ComflySoft',
+      period: 'Jan 2019 – Oct 2019',
+      projects: [
+        WorkProject(
+          name: 'Airport Staff & Process Manager',
+          client: 'Australia',
+          period: 'Jan 2019 – Oct 2019',
+          team: '6 members',
+          description: 'Workforce app for airport staff: auto check-in and a task/process manager integrated '
+              'with Jira and reminders.',
+          highlights: [
+            'Implemented realtime location tracking with Google Maps (location, distance, area) '
+                'together with the backend team in Australia.',
+            'Optimized the feature for smooth interaction with the backend.',
+          ],
+          tags: ['Java', 'MVP', 'RxJava', 'Dagger', 'Retrofit', 'Google Maps'],
+        ),
+      ],
+    ),
+    Experience(
+      role: 'Android Developer',
+      company: 'BeeSightSoft',
+      period: 'Jul 2017 – Dec 2018',
+      projects: [
+        WorkProject(
+          name: 'Farm Food & Equipment Store',
+          client: 'China',
+          period: 'Jul 2017 – Dec 2018',
+          team: '15 members',
+          description: 'E-commerce platform for a multinational farm food and agricultural equipment store, '
+              'with monthly / yearly subscriptions and customer surveys.',
+          highlights: [
+            'Built the payment and subscription flows.',
+            'Security measures to protect user data; testing, debugging and maintenance.',
+          ],
+          tags: ['Java', 'MVP', 'RxJava', 'Dagger', 'Retrofit'],
+        ),
+        WorkProject(
+          name: 'Children\'s Health Care',
+          client: 'Vietnam',
+          period: 'Jul 2017 – Jul 2018',
+          team: '9 members',
+          description: 'App for parents to monitor their child\'s health: dashboard, location on map, alerts, '
+              'mini-games, appointment scheduling and health news.',
+          highlights: [
+            'Location features with Google Maps (tracking, distance, area).',
+            'Reusable mini-game template with sound effects and animations.',
+            'Optimized performance for location tracking and video playback.',
+          ],
+          tags: ['Java', 'MVP', 'Google Maps', 'Animation'],
+        ),
+      ],
     ),
   ],
   projects: [
     Project(
       name: 'WebRTC Flutter',
-      description: 'Video call demo built with Flutter and WebRTC.',
+      description: 'Peer-to-peer video call app built with Flutter and WebRTC.',
       tags: ['Flutter', 'WebRTC'],
       url: 'https://github.com/binhhoit/WebRTC-Flutter',
     ),
     Project(
-      name: 'Mobile Tracking Location',
-      description: 'Location tracking app for mobile.',
-      tags: ['Mobile', 'Location'],
-      url: 'https://github.com/binhhoit/mobile-tracking-location',
-    ),
-    Project(
       name: 'Datatrans Plugin',
-      description: 'Flutter plugin integrating the Datatrans payment SDK.',
+      description: 'Flutter plugin wrapping the native Datatrans payment SDK.',
       tags: ['Flutter', 'Plugin', 'Payment'],
       url: 'https://github.com/binhhoit/Datatrans_plugin',
     ),
     Project(
+      name: 'Mobile Tracking Location',
+      description: 'Background location tracking for mobile.',
+      tags: ['Mobile', 'Location'],
+      url: 'https://github.com/binhhoit/mobile-tracking-location',
+    ),
+    Project(
+      name: 'Clean Architecture',
+      description: 'Android sample following Clean Architecture layers.',
+      tags: ['Kotlin', 'Clean Architecture'],
+      url: 'https://github.com/binhhoit/Clean-Architecture-',
+    ),
+    Project(
       name: 'Demo Compose Android',
-      description: 'Base Android project using Jetpack Compose.',
-      tags: ['Android', 'Compose'],
+      description: 'Base Android project using Jetpack Compose and Compose APIs.',
+      tags: ['Kotlin', 'Compose'],
       url: 'https://github.com/binhhoit/DemoComposeAndroid',
+    ),
+    Project(
+      name: 'Twitter Auth Kotlin',
+      description: 'Step-by-step Twitter sign-in implementation on Android.',
+      tags: ['Kotlin', 'OAuth'],
+      url: 'https://github.com/binhhoit/handle_twitter_auth_kotlin',
     ),
   ],
   education: [],
-  languages: [],
+  languages: ['Vietnamese — native', 'English — working proficiency'],
 );
 
 class Profile {
@@ -110,8 +257,36 @@ class Experience {
   final String company;
   final String period;
   final List<String> highlights;
+  final List<WorkProject> projects;
 
-  const Experience({required this.role, required this.company, required this.period, this.highlights = const []});
+  const Experience({
+    required this.role,
+    required this.company,
+    required this.period,
+    this.highlights = const [],
+    this.projects = const [],
+  });
+}
+
+/// A client project delivered while working at a company.
+class WorkProject {
+  final String name;
+  final String client;
+  final String period;
+  final String? team;
+  final String description;
+  final List<String> highlights;
+  final List<String> tags;
+
+  const WorkProject({
+    required this.name,
+    required this.client,
+    required this.period,
+    required this.description,
+    this.team,
+    this.highlights = const [],
+    this.tags = const [],
+  });
 }
 
 class Project {

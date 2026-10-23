@@ -1,11 +1,11 @@
 {
-    "name": "Binh Ho · Profile",
-    "short_name": "Binh Ho",
+    "name": "Ho Thanh Binh · Profile",
+    "short_name": "Ho Thanh Binh",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#F1F4F2",
     "theme_color": "#064635",
-    "description": "Binh Ho — Mobile Developer",
+    "description": "Ho Thanh Binh — Mobile Developer",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

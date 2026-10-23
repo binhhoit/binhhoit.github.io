@@ -44,7 +44,7 @@ class ContactSection extends StatelessWidget {
           for (final link in profile.links)
             AppInfoRow(
               icon: link.icon,
-              text: link.url.replaceFirst(RegExp(r'^https?://'), ''),
+              text: Uri.decodeFull(link.url).replaceFirst(RegExp(r'^https?://(www\.)?'), ''),
               color: UIColor.primary,
               onTap: () => openUrl(link.url),
             ),
@@ -101,8 +101,42 @@ class ExperienceSection extends StatelessWidget {
               subtitle: items[i].company,
               period: items[i].period,
               isLast: i == items.length - 1,
-              body: items[i].highlights.isEmpty ? null : AppBulletList(items[i].highlights),
+              body: _experienceBody(items[i]),
             ),
+        ]),
+      );
+
+  Widget? _experienceBody(Experience e) {
+    if (e.highlights.isEmpty && e.projects.isEmpty) return null;
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      if (e.highlights.isNotEmpty) AppBulletList(e.highlights),
+      for (final p in e.projects) ...[const SizedBox(height: 8), _WorkProjectCard(project: p)],
+    ]);
+  }
+}
+
+/// Client project block nested under a company in the experience timeline.
+class _WorkProjectCard extends StatelessWidget {
+  final WorkProject project;
+
+  const _WorkProjectCard({required this.project});
+
+  @override
+  Widget build(BuildContext context) => Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(color: UIColor.page, borderRadius: BorderRadius.circular(12)),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text('${project.name} · ${project.client}', style: AppTextStyle.t1),
+          const SizedBox(height: 2),
+          Text(
+            [project.period, if (project.team != null) project.team!].join(' · '),
+            style: AppTextStyle.small,
+          ),
+          const SizedBox(height: 8),
+          Text(project.description, style: AppTextStyle.body.copyWith(fontSize: 13)),
+          if (project.highlights.isNotEmpty) ...[const SizedBox(height: 8), AppBulletList(project.highlights)],
+          if (project.tags.isNotEmpty) ...[const SizedBox(height: 8), AppChipWrap(project.tags)],
         ]),
       );
 }
