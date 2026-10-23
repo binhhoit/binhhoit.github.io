@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
 /// All profile content lives in this file — edit it and the page updates.
-/// Source: CV (Nov 2024) + public GitHub repos. Private details (address, birthday, phone) are left out on purpose.
+/// Source: LinkedIn timeline, CV (Nov 2024) and public GitHub repos.
+/// Private details (address, birthday, phone) are left out on purpose.
 const profile = Profile(
   name: 'Ho Thanh Binh',
-  title: 'Software Engineer · Mobile Developer (Flutter / Android)',
+  title: 'Mobile Application Developer · Flutter / Android',
   location: 'Ho Chi Minh City, Vietnam',
   email: 'binhhoit@gmail.com',
   avatarAsset: 'assets/images/avatar.jpg',
   summary:
       'Mobile developer with 9+ years of experience since 2017, building Android apps in Kotlin and Java and '
-      'cross-platform apps in Flutter / Dart. I have shipped products for clients in Hong Kong, the UK, France, '
-      'Australia and China: e-commerce, fintech, social livestreaming, warranty & customer care, and workforce tools.\n\n'
+      'cross-platform apps in Flutter / Dart. I currently build the Wumbo Digital Concierge app (iOS, Android) and '
+      'web at WE Wumbo, a smart-building platform from Australia.\n\n'
+      'Before that I shipped products for clients in Hong Kong, the UK, France, Australia and China: e-commerce, '
+      'fintech, social livestreaming, warranty & customer care, and workforce tools.\n\n'
       'I care about clean architecture (MVVM, MVP, Clean Architecture), testable code and smooth UI that matches the '
       'design pixel by pixel. Day to day I work on realtime features (livestream, sockets, Firebase), payment '
       'integration, maps & location tracking, memory and performance tuning, and CI/CD in Agile Scrum teams.',
@@ -25,7 +28,7 @@ const profile = Profile(
   ],
   skills: [
     SkillGroup(name: 'Languages', items: ['Kotlin', 'Java', 'Dart']),
-    SkillGroup(name: 'Mobile', items: ['Android SDK', 'Flutter', 'Jetpack Compose', 'Material UI', 'Chromebook']),
+    SkillGroup(name: 'Mobile', items: ['Flutter', 'Flutter Web', 'Android SDK', 'Jetpack Compose', 'iOS / SwiftUI']),
     SkillGroup(name: 'Architecture', items: ['MVVM', 'MVP', 'Clean Architecture', 'BLoC', 'Koin', 'Dagger']),
     SkillGroup(name: 'Async & Network', items: ['Coroutines', 'RxJava', 'Retrofit', 'REST API', 'Socket.IO']),
     SkillGroup(
@@ -42,23 +45,47 @@ const profile = Profile(
   ],
   experiences: [
     Experience(
-      role: 'Freelance Flutter / Android Developer',
-      company: 'Self-employed',
-      period: 'Jan 2024 – Present',
-      highlights: [
-        'Build cross-platform apps with Flutter and native Android apps for clients, from UI kit to release.',
-        'Realtime video calls (WebRTC), payment plugins (Datatrans) and location tracking.',
+      role: 'Mobile Application Developer',
+      company: 'WE Wumbo · Full-time · Remote (Melbourne, Australia)',
+      period: 'Mar 2025 – Present',
+      highlights: ['Flutter and Android development for the Wumbo mobile apps and web.'],
+      projects: [
+        WorkProject(
+          name: 'Wumbo Digital Concierge',
+          client: 'Australia',
+          period: 'Mar 2025 – Present',
+          description: 'Resident app for smart residential buildings: building news, facility bookings, parcel '
+              'collection, neighbour groups, defect reporting, home documents, in-home services and rewards.',
+          highlights: [
+            'Build features for the iOS and Android apps with Flutter, plus the company web.',
+            'Owners Corporation tools: resident polls, community space, invoice and quote voting.',
+            'Light / dark themes, a unified Explore hub and streamlined issue reporting and tracking.',
+          ],
+          tags: ['Flutter', 'Dart', 'Android', 'iOS', 'Web'],
+          links: [
+            ProfileLink(
+              label: 'Google Play',
+              url: 'https://play.google.com/store/apps/details?id=io.wumbo.we',
+              icon: Icons.shop_outlined,
+            ),
+            ProfileLink(
+              label: 'App Store',
+              url: 'https://apps.apple.com/vn/app/wumbo-digital-concierge/id1159641039',
+              icon: Icons.phone_iphone,
+            ),
+          ],
+        ),
       ],
     ),
     Experience(
-      role: 'Android / Flutter Developer',
-      company: 'Saigon Technology',
-      period: 'May 2022 – Jan 2024',
+      role: 'Android Developer',
+      company: 'Saigon Technology · Full-time',
+      period: 'May 2022 – Mar 2025',
       projects: [
         WorkProject(
           name: 'Milwaukee',
           client: 'Hong Kong',
-          period: 'Apr 2023 – Jan 2024',
+          period: 'Since Apr 2023',
           team: '14 members',
           description: 'Warranty and customer care app: warranty management, customer feedback, promotions, '
               'region-based content and a supply-chain store locator.',
@@ -86,9 +113,10 @@ const profile = Profile(
       ],
     ),
     Experience(
-      role: 'Android Developer',
-      company: 'Dirox',
-      period: 'Oct 2019 – May 2022',
+      role: 'Mobile Application Developer',
+      company: 'Dirox · Full-time',
+      period: 'Oct 2019 – Jul 2022',
+      highlights: ['Android development while picking up iOS (SwiftUI).'],
       projects: [
         WorkProject(
           name: 'Social Challenge App',
@@ -108,9 +136,10 @@ const profile = Profile(
       ],
     ),
     Experience(
-      role: 'Android Developer',
-      company: 'ComflySoft',
-      period: 'Jan 2019 – Oct 2019',
+      role: 'Android Developer, Research and Development',
+      company: 'ComplyFlowSoft · Full-time',
+      period: 'Nov 2018 – Oct 2019',
+      highlights: ['Compliance apps: Live Access, Muster List live notifications, Comply Flow Inspection.'],
       projects: [
         WorkProject(
           name: 'Airport Staff & Process Manager',
@@ -201,7 +230,14 @@ const profile = Profile(
       url: 'https://github.com/binhhoit/handle_twitter_auth_kotlin',
     ),
   ],
-  education: [],
+  education: [
+    Education(
+      school: 'University of Information Technology',
+      detail: 'Vietnam National University, Ho Chi Minh City',
+      period: 'Sep 2013 – Jul 2017',
+      logoAsset: 'assets/images/uit_logo.jpg',
+    ),
+  ],
   languages: ['Vietnamese — native', 'English — working proficiency'],
 );
 
@@ -277,6 +313,7 @@ class WorkProject {
   final String description;
   final List<String> highlights;
   final List<String> tags;
+  final List<ProfileLink> links;
 
   const WorkProject({
     required this.name,
@@ -286,6 +323,7 @@ class WorkProject {
     this.team,
     this.highlights = const [],
     this.tags = const [],
+    this.links = const [],
   });
 }
 
@@ -300,8 +338,9 @@ class Project {
 
 class Education {
   final String school;
-  final String degree;
+  final String detail;
   final String period;
+  final String? logoAsset;
 
-  const Education({required this.school, required this.degree, required this.period});
+  const Education({required this.school, required this.detail, required this.period, this.logoAsset});
 }

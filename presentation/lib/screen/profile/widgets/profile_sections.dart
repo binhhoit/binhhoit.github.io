@@ -137,6 +137,19 @@ class _WorkProjectCard extends StatelessWidget {
           Text(project.description, style: AppTextStyle.body.copyWith(fontSize: 13)),
           if (project.highlights.isNotEmpty) ...[const SizedBox(height: 8), AppBulletList(project.highlights)],
           if (project.tags.isNotEmpty) ...[const SizedBox(height: 8), AppChipWrap(project.tags)],
+          if (project.links.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Wrap(spacing: 8, runSpacing: 8, children: [
+              for (final link in project.links)
+                AppButton(
+                  label: link.label,
+                  icon: link.icon,
+                  filled: false,
+                  color: UIColor.primary,
+                  onPressed: () => openUrl(link.url),
+                ),
+            ]),
+          ],
         ]),
       );
 }
@@ -151,15 +164,37 @@ class EducationSection extends StatelessWidget {
         title: 'Education',
         icon: Icons.school_outlined,
         child: Column(children: [
-          for (var i = 0; i < items.length; i++)
-            AppTimelineItem(
-              title: items[i].school,
-              subtitle: items[i].degree,
-              period: items[i].period,
-              isLast: i == items.length - 1,
-            ),
+          for (var i = 0; i < items.length; i++) ...[
+            if (i > 0) const SizedBox(height: 14),
+            _EducationRow(item: items[i]),
+          ],
         ]),
       );
+}
+
+class _EducationRow extends StatelessWidget {
+  final Education item;
+
+  const _EducationRow({required this.item});
+
+  @override
+  Widget build(BuildContext context) => Row(children: [
+        if (item.logoAsset != null) ...[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(item.logoAsset!, width: 52, height: 52, fit: BoxFit.cover),
+          ),
+          const SizedBox(width: 14),
+        ],
+        Expanded(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(item.school, style: AppTextStyle.t1),
+            const SizedBox(height: 2),
+            Text(item.detail, style: AppTextStyle.t2.copyWith(color: UIColor.primary)),
+            Text(item.period, style: AppTextStyle.small),
+          ]),
+        ),
+      ]);
 }
 
 class ProjectsSection extends StatelessWidget {
