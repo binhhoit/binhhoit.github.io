@@ -16,6 +16,8 @@ class ProfilePage extends StatelessWidget {
     final wide = isWide(context);
     final side = [
       ContactSection(profile: profile),
+      // Education sits right under Contact so it is visible without scrolling.
+      if (profile.education.isNotEmpty) EducationSection(items: profile.education),
       if (profile.skills.isNotEmpty) SkillsSection(groups: profile.skills),
       if (profile.languages.isNotEmpty) LanguagesSection(languages: profile.languages),
     ];
@@ -23,7 +25,6 @@ class ProfilePage extends StatelessWidget {
       AboutSection(summary: profile.summary),
       if (profile.experiences.isNotEmpty) ExperienceSection(items: profile.experiences),
       if (profile.projects.isNotEmpty) ProjectsSection(items: profile.projects),
-      if (profile.education.isNotEmpty) EducationSection(items: profile.education),
     ];
 
     return Scaffold(
