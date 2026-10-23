@@ -23,7 +23,8 @@ const profile = Profile(
     'MVP in weeks: mobile app, web admin, backend (Supabase / Firebase) and store release, end to end.',
     'Native or Flutter? Honest advice on the right stack, then building it, or migrating native apps to Flutter.',
     'Modernize legacy apps: Java to Kotlin, XML to Jetpack Compose, cleaner architecture and better performance.',
-    'Realtime features: VoIP and video calls (SIP, WebRTC, CallKit), livestreaming, chat and location tracking.',
+    'VoIP and video calls with Voximplant, SIP, WebRTC and CallKit / PushKit; plus livestreaming, chat and '
+        'location tracking.',
     'Payments and subscriptions: Google Pay, Mangopay, Datatrans and in-app purchases.',
     'Store release and support: publish to Google Play and the App Store, handle review rejections, policy '
         'updates, signing and staged rollouts.',
@@ -55,7 +56,7 @@ const profile = Profile(
     SkillGroup(name: 'Async & Network', items: ['Coroutines', 'RxJava', 'Retrofit', 'REST API', 'Socket.IO']),
     SkillGroup(
       name: 'Realtime & Media',
-      items: ['VoIP / SIP', 'CallKit & PushKit', 'WebRTC', 'Livestream (RTMP)', 'Google Maps', 'Location tracking'],
+      items: ['Voximplant SDK', 'VoIP / SIP', 'CallKit & PushKit', 'WebRTC', 'Livestream (RTMP)', 'Google Maps', 'Location tracking'],
     ),
     SkillGroup(
       name: 'Data & Cloud',
@@ -130,16 +131,28 @@ const profile = Profile(
           name: 'Astro7 · Voice & Video Calling',
           client: 'Freelance',
           period: '2024 – 2025',
-          description: 'SIP-based calling app (Flutter) with native incoming-call screens that ring even when the app '
-              'is killed or the phone is locked.',
+          description: 'VoIP calling app (Flutter) built on the Voximplant platform, with native incoming-call screens '
+              'that ring even when the app is killed or the phone is locked.',
           highlights: [
+            'Built the calling core on Voximplant: flutter_voximplant for login, SIP / VoIP calls and media, '
+                'flutter_callkit_voximplant to bridge Voximplant calls into the native iOS CallKit UI.',
             'iOS: VoIP push handling with PushKit in AppDelegate, showing the native CallKit screen via '
                 'flutter_callkit_incoming.',
             'Android: incoming calls via Firebase Cloud Messaging; answer from the lock screen (wake lock, '
                 'show-when-locked, keyguard) through a Flutter MethodChannel.',
-            'SIP and Voximplant calling, ringtone and vibration, Crashlytics and Analytics.',
+            'Incoming and outgoing call flows, ringtone and vibration, Crashlytics and Analytics.',
           ],
-          tags: ['Flutter', 'CallKit', 'PushKit', 'VoIP', 'SIP', 'Voximplant', 'FCM', 'BLoC'],
+          tags: [
+            'Voximplant',
+            'flutter_voximplant',
+            'flutter_callkit_voximplant',
+            'CallKit',
+            'PushKit',
+            'SIP',
+            'FCM',
+            'Flutter',
+            'BLoC',
+          ],
         ),
       ],
     ),
