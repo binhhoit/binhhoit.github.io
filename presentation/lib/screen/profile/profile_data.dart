@@ -25,6 +25,8 @@ const profile = Profile(
     'Modernize legacy apps: Java to Kotlin, XML to Jetpack Compose, cleaner architecture and better performance.',
     'Realtime features: video calls (WebRTC, CallKit), livestreaming, chat and location tracking.',
     'Payments and subscriptions: Google Pay, Mangopay, Datatrans and in-app purchases.',
+    'Store release and support: publish to Google Play and the App Store, handle review rejections, policy '
+        'updates, signing and staged rollouts.',
     'AI-assisted workflow and CI/CD for your team, so a small team ships like a big one.',
   ],
   links: [
@@ -58,6 +60,18 @@ const profile = Profile(
     SkillGroup(
       name: 'Data & Cloud',
       items: ['Supabase', 'PostgreSQL', 'Firebase', 'Realtime Database', 'SQLite', 'MongoDB', 'AWS S3', 'Cloudinary'],
+    ),
+    SkillGroup(
+      name: 'Store Release',
+      items: [
+        'Google Play Console',
+        'App Store Connect',
+        'TestFlight',
+        'Signing & provisioning',
+        'Store review & policy',
+        'Staged rollout',
+        'Crash monitoring',
+      ],
     ),
     SkillGroup(name: 'Payments', items: ['Google Pay', 'Mangopay', 'Datatrans', 'Subscriptions']),
     SkillGroup(
