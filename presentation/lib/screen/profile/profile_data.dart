@@ -78,14 +78,35 @@ const profile = Profile(
       ],
     ),
     Experience(
+      role: 'Freelance Flutter / Android Developer',
+      company: 'Self-employed',
+      period: 'Jan 2024 – Mar 2025',
+      projects: [
+        WorkProject(
+          name: 'Reading App',
+          client: 'Freelance',
+          period: '2024',
+          description: 'Mobile app for reading books, with a library and a comfortable reading experience.',
+          tags: ['Flutter', 'Android'],
+        ),
+        WorkProject(
+          name: 'Video Call with CallKit',
+          client: 'Freelance',
+          period: '2024 – 2025',
+          description: 'Video calling app with native incoming-call UI via CallKit (iOS) and ConnectionService (Android).',
+          tags: ['Flutter', 'WebRTC', 'CallKit', 'VoIP Push'],
+        ),
+      ],
+    ),
+    Experience(
       role: 'Android Developer',
       company: 'Saigon Technology · Full-time',
-      period: 'May 2022 – Mar 2025',
+      period: 'May 2022 – Jan 2024',
       projects: [
         WorkProject(
           name: 'Milwaukee',
           client: 'Hong Kong',
-          period: 'Since Apr 2023',
+          period: 'Apr 2023 – Jan 2024',
           team: '14 members',
           description: 'Warranty and customer care app: warranty management, customer feedback, promotions, '
               'region-based content and a supply-chain store locator.',
