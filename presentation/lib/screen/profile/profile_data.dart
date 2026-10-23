@@ -23,7 +23,7 @@ const profile = Profile(
     'MVP in weeks: mobile app, web admin, backend (Supabase / Firebase) and store release, end to end.',
     'Native or Flutter? Honest advice on the right stack, then building it, or migrating native apps to Flutter.',
     'Modernize legacy apps: Java to Kotlin, XML to Jetpack Compose, cleaner architecture and better performance.',
-    'Realtime features: video calls (WebRTC, CallKit), livestreaming, chat and location tracking.',
+    'Realtime features: VoIP and video calls (SIP, WebRTC, CallKit), livestreaming, chat and location tracking.',
     'Payments and subscriptions: Google Pay, Mangopay, Datatrans and in-app purchases.',
     'Store release and support: publish to Google Play and the App Store, handle review rejections, policy '
         'updates, signing and staged rollouts.',
@@ -55,7 +55,7 @@ const profile = Profile(
     SkillGroup(name: 'Async & Network', items: ['Coroutines', 'RxJava', 'Retrofit', 'REST API', 'Socket.IO']),
     SkillGroup(
       name: 'Realtime & Media',
-      items: ['Livestream (RTMP)', 'WebRTC', 'Google Maps', 'Location tracking'],
+      items: ['VoIP / SIP', 'CallKit & PushKit', 'WebRTC', 'Livestream (RTMP)', 'Google Maps', 'Location tracking'],
     ),
     SkillGroup(
       name: 'Data & Cloud',
@@ -127,12 +127,19 @@ const profile = Profile(
           tags: ['Flutter', 'Android'],
         ),
         WorkProject(
-          name: 'Video Call with CallKit',
+          name: 'Astro7 · Voice & Video Calling',
           client: 'Freelance',
           period: '2024 – 2025',
-          description:
-              'Video calling app with native incoming-call UI via CallKit (iOS) and ConnectionService (Android).',
-          tags: ['Flutter', 'WebRTC', 'CallKit', 'VoIP Push'],
+          description: 'SIP-based calling app (Flutter) with native incoming-call screens that ring even when the app '
+              'is killed or the phone is locked.',
+          highlights: [
+            'iOS: VoIP push handling with PushKit in AppDelegate, showing the native CallKit screen via '
+                'flutter_callkit_incoming.',
+            'Android: incoming calls via Firebase Cloud Messaging; answer from the lock screen (wake lock, '
+                'show-when-locked, keyguard) through a Flutter MethodChannel.',
+            'SIP and Voximplant calling, ringtone and vibration, Crashlytics and Analytics.',
+          ],
+          tags: ['Flutter', 'CallKit', 'PushKit', 'VoIP', 'SIP', 'Voximplant', 'FCM', 'BLoC'],
         ),
       ],
     ),
