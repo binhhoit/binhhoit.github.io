@@ -261,6 +261,8 @@ const profile = Profile(
       role: 'Android Developer',
       company: 'BeeSightSoft',
       period: 'Jul 2017 – Dec 2018',
+      // Store pages and websites of these apps are no longer online, so they are listed without links.
+      highlights: ['Shipped apps including Kiddi Family, Multiply and SpoutInfo.'],
       projects: [
         WorkProject(
           name: 'Farm Food & Equipment Store',
