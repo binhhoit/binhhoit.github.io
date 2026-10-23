@@ -17,7 +17,11 @@ const profile = Profile(
       'fintech, social livestreaming, warranty & customer care, and workforce tools.\n\n'
       'I care about clean architecture (MVVM, MVP, Clean Architecture), testable code and smooth UI that matches the '
       'design pixel by pixel. Day to day I work on realtime features (livestream, sockets, Firebase), payment '
-      'integration, maps & location tracking, memory and performance tuning, and CI/CD in Agile Scrum teams.',
+      'integration, maps & location tracking, memory and performance tuning, and CI/CD in Agile Scrum teams.\n\n'
+      'I build with AI every day: coding agents like Claude Code for planning, implementing, testing and reviewing '
+      'features, MCP integrations that turn Figma designs into Flutter UI and manage Supabase backends, and '
+      'prompt-driven workflows that let me ship full products end to end (mobile, web, backend and deploy) faster '
+      'without giving up code quality.',
   links: [
     ProfileLink(label: 'GitHub', url: 'https://github.com/binhhoit', icon: Icons.code),
     ProfileLink(
@@ -28,6 +32,17 @@ const profile = Profile(
   ],
   skills: [
     SkillGroup(name: 'Languages', items: ['Kotlin', 'Java', 'Dart']),
+    SkillGroup(
+      name: 'AI-assisted Development',
+      items: [
+        'Claude Code',
+        'AI coding agents',
+        'MCP (Figma, Supabase)',
+        'Figma-to-code',
+        'Prompt engineering',
+        'AI code review & testing',
+      ],
+    ),
     SkillGroup(name: 'Mobile', items: ['Flutter', 'Flutter Web', 'Android SDK', 'Jetpack Compose', 'iOS / SwiftUI']),
     SkillGroup(name: 'Architecture', items: ['MVVM', 'MVP', 'Clean Architecture', 'BLoC', 'Koin', 'Dagger']),
     SkillGroup(name: 'Async & Network', items: ['Coroutines', 'RxJava', 'Retrofit', 'REST API', 'Socket.IO']),
@@ -37,10 +52,13 @@ const profile = Profile(
     ),
     SkillGroup(
       name: 'Data & Cloud',
-      items: ['Firebase', 'Realtime Database', 'SQLite', 'MongoDB', 'AWS S3', 'Supabase'],
+      items: ['Supabase', 'PostgreSQL', 'Firebase', 'Realtime Database', 'SQLite', 'MongoDB', 'AWS S3', 'Cloudinary'],
     ),
     SkillGroup(name: 'Payments', items: ['Google Pay', 'Mangopay', 'Datatrans', 'Subscriptions']),
-    SkillGroup(name: 'Quality & Delivery', items: ['Unit test', 'Espresso', 'Appium', 'Jenkins', 'GitLab CI']),
+    SkillGroup(
+      name: 'Quality & Delivery',
+      items: ['Unit test', 'Espresso', 'Appium', 'GitHub Actions', 'Jenkins', 'GitLab CI', 'Cloudflare Pages'],
+    ),
     SkillGroup(name: 'Tools & Process', items: ['Android Studio', 'VS Code', 'Git', 'Jira', 'Agile Scrum']),
   ],
   experiences: [
