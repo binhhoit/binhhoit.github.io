@@ -7,7 +7,7 @@ const profile = Profile(
   title: 'Software Engineer · Mobile Developer (Flutter / Android)',
   location: 'Ho Chi Minh City, Vietnam',
   email: 'binhhoit@gmail.com',
-  avatarAsset: null, // e.g. 'assets/images/avatar.jpg' (put the file in presentation/assets/images/)
+  avatarAsset: 'assets/images/avatar.jpg',
   summary:
       'Mobile developer with 9+ years of experience since 2017, building Android apps in Kotlin and Java and '
       'cross-platform apps in Flutter / Dart. I have shipped products for clients in Hong Kong, the UK, France, '
