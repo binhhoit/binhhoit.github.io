@@ -130,7 +130,8 @@ const profile = Profile(
           name: 'Video Call with CallKit',
           client: 'Freelance',
           period: '2024 – 2025',
-          description: 'Video calling app with native incoming-call UI via CallKit (iOS) and ConnectionService (Android).',
+          description:
+              'Video calling app with native incoming-call UI via CallKit (iOS) and ConnectionService (Android).',
           tags: ['Flutter', 'WebRTC', 'CallKit', 'VoIP Push'],
         ),
       ],
@@ -141,32 +142,53 @@ const profile = Profile(
       period: 'May 2022 – Jan 2024',
       projects: [
         WorkProject(
-          name: 'Milwaukee',
-          client: 'Hong Kong',
+          name: 'Milwaukee ONE-KEY',
+          client: 'Hong Kong / EMEA',
           period: 'Apr 2023 – Jan 2024',
           team: '14 members',
-          description: 'Warranty and customer care app: warranty management, customer feedback, promotions, '
-              'region-based content and a supply-chain store locator.',
+          description: 'ONE-KEY, Milwaukee\'s digital platform for tools and equipment: warranty management, '
+              'customer feedback, promotions, region-based content and a supply-chain store locator.',
           highlights: [
             'Structured the codebase and built UI from the client Figma designs.',
             'Wrote unit tests and UI tests for the Android project.',
             'Tested APIs and resolved issues together with the backend team.',
           ],
           tags: ['Kotlin', 'MVVM', 'Koin', 'Coroutines', 'Unit test'],
+          links: [
+            ProfileLink(
+              label: 'Google Play',
+              url: 'https://play.google.com/store/apps/details?id=com.milwaukeetool.onekey_emea&hl=en',
+              icon: Icons.shop_outlined,
+            ),
+          ],
         ),
         WorkProject(
-          name: 'Finance Manager',
+          name: 'Lowell',
           client: 'United Kingdom',
           period: 'Apr 2022 – Apr 2023',
           team: '13 members',
-          description: 'Personal finance app with auto debit for bills and subscriptions and wallet management '
-              'to track expenses and spending habits.',
+          description: 'Customer app of Lowell, a UK financial services company: view accounts and balances, check '
+              'affordability, set up payment plans and automatic payments, pay by card, Google Pay or Apple Pay, '
+              'payment history and biometric login.',
           highlights: [
             'Built animated UI components following the design.',
             'Proposed solutions for memory management and app lifecycle.',
             'Refactored the codebase to be clear and easy to extend.',
           ],
           tags: ['Kotlin', 'MVVM', 'Koin', 'Coroutines', 'Firebase'],
+          links: [
+            ProfileLink(
+              label: 'Google Play',
+              url: 'https://play.google.com/store/apps/details?id=com.lowell.app',
+              icon: Icons.shop_outlined,
+            ),
+            ProfileLink(
+              label: 'App Store',
+              url: 'https://apps.apple.com/gb/app/lowell/id1561110150',
+              icon: Icons.phone_iphone,
+            ),
+            ProfileLink(label: 'Website', url: 'https://www.lowell.co.uk/mobile-app/', icon: Icons.language),
+          ],
         ),
       ],
     ),
