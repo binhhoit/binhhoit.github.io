@@ -278,7 +278,7 @@ const profile = Profile(
           tags: ['Java', 'MVP', 'RxJava', 'Dagger', 'Retrofit'],
         ),
         WorkProject(
-          name: 'Children\'s Health Care',
+          name: 'Kiddi Family',
           client: 'Vietnam',
           period: 'Jul 2017 – Jul 2018',
           team: '9 members',
