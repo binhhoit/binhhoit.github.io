@@ -3,6 +3,7 @@ import 'package:presentation/screen/profile/profile_data.dart';
 import 'package:presentation/screen/profile/widgets/profile_header.dart';
 import 'package:presentation/screen/profile/widgets/profile_sections.dart';
 import 'package:presentation/utils/open_url.dart';
+import 'package:presentation/utils/view_counter.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 /// Single-page profile.
@@ -45,22 +46,26 @@ class ProfilePage extends StatelessWidget {
     }
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(children: [
-          ProfileHeader(profile: profile),
-          const SizedBox(height: 24),
-          ResponsiveCenter(child: body),
-          const SizedBox(height: 32),
-          Text('© ${DateTime.now().year} ${profile.name}', style: AppTextStyle.small),
-          const SizedBox(height: 4),
-          // Attribution required by the Flaticon free license for the site icon.
-          InkWell(
-            onTap: () => openUrl('https://www.flaticon.com/free-icon/app-development_5738077'),
-            child: Text('Site icon by Freepik – Flaticon', style: AppTextStyle.small),
-          ),
-          const SizedBox(height: 24),
-        ]),
-      ),
+      body: Stack(children: [
+        SingleChildScrollView(
+          child: Column(children: [
+            ProfileHeader(profile: profile),
+            const SizedBox(height: 24),
+            ResponsiveCenter(child: body),
+            const SizedBox(height: 32),
+            Text('© ${DateTime.now().year} ${profile.name}', style: AppTextStyle.small),
+            const SizedBox(height: 4),
+            // Attribution required by the Flaticon free license for the site icon.
+            InkWell(
+              onTap: () => openUrl('https://www.flaticon.com/free-icon/app-development_5738077'),
+              child: Text('Site icon by Freepik – Flaticon', style: AppTextStyle.small),
+            ),
+            const SizedBox(height: 24),
+          ]),
+        ),
+        // Low-key visitor count pinned to the bottom-right corner.
+        const Positioned(right: 12, bottom: 10, child: ViewCounter()),
+      ]),
     );
   }
 }

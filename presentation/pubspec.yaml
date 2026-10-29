@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^1.6.0
   ui_kit:
     path: ../ui_kit
   url_launcher: ^6.3.2
